@@ -1,7 +1,7 @@
 {
   "title": "普通人的 AI 学习指南",
   "subtitle": "认识 AI，减少焦虑，学会判断，从小事开始行动",
-  "version": "0.17.1",
+  "version": "0.17.2",
   "date": "2026-10-14",
   "status": "内容与阅读版初稿；具体操作尚未完成读者实测",
   "pdf": "downloads/普通人的AI学习指南.pdf",
@@ -9,5 +9,6 @@
   "disclaimer": "本指南用于学习、交流与任务练习。研究、官方资料与作者建议分别标注；具体流程尚未完成读者实测，不保证适合每个人，也不承诺提效、录用或收入结果。请结合自己的材料、权限、环境和适用规则核实后使用，示例不宜直接照搬。",
   "license_notice": "本项目原创内容采用 CC BY 4.0；第三方材料遵循各自的权利与许可。",
   "repository": "https://github.com/kkk-bot/HowToLiveWithAI",
-  "homepage": "https://kkk-bot.github.io/HowToLiveWithAI/"
+  "homepage": "https://kkk-bot.github.io/HowToLiveWithAI/",
+  "pdf_cover": "assets/普通人的AI学习指南-PDF竖版封面-v1.png"
 }

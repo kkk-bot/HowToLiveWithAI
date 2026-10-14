@@ -190,15 +190,18 @@ def build_pdf(font,bold):
       'small':ParagraphStyle('small',fontName='Guide',fontSize=9,leading=14.8,spaceAfter=7,textColor=colors.HexColor('#51656c'),wordWrap='CJK'),
       'cell':ParagraphStyle('cell',fontName='Guide',fontSize=8.5,leading=13,wordWrap='CJK')}
     w,h=A4;output=ROOT/META['pdf'];output.parent.mkdir(exist_ok=True)
-    image_w,image_h=ImageReader(str(ROOT/META['cover'])).getSize()
-    # The artwork can be landscape; the PDF page must match the portrait body.
-    # Fit the entire image inside A4 without stretching or cropping its text.
+    cover_path=ROOT/META.get('pdf_cover',META['cover'])
+    image_w,image_h=ImageReader(str(cover_path)).getSize()
+    # PDF needs its own portrait composition; a fitted web banner leaves large
+    # empty bands even when the page size itself is correct.
+    if abs((image_w/image_h)/(w/h)-1)>.02:
+        raise ValueError('PDF cover artwork must have a portrait A4 aspect ratio')
     cover_scale=min(w/image_w,h/image_h)
     cover_w,cover_h=image_w*cover_scale,image_h*cover_scale
     cover_x,cover_y=(w-cover_w)/2,(h-cover_h)/2
     def decorate(canvas,doc):
         if doc.page==1:
-            canvas.drawImage(str(ROOT/META['cover']),cover_x,cover_y,width=cover_w,height=cover_h,preserveAspectRatio=True,anchor='c')
+            canvas.drawImage(str(cover_path),cover_x,cover_y,width=cover_w,height=cover_h,preserveAspectRatio=True,anchor='c')
             return
         canvas.saveState();canvas.setStrokeColor(colors.HexColor('#d6dfdc'));canvas.line(48,h-41,w-48,h-41)
         canvas.setFont('Guide',8);canvas.setFillColor(colors.HexColor('#5a6a71'));canvas.drawString(48,h-31,META['title'])
@@ -316,6 +319,18 @@ def validate(page):
         for box in (p.mediabox,p.cropbox):
             if any(abs(float(value)-expected)>.01 for value,expected in zip(box,(0,0,*A4))) or p.rotation%360:
                 raise ValueError(f'PDF page {number}: expected unrotated portrait A4')
+    cover_images=[x.get_object() for x in reader.pages[0]['/Resources'].get('/XObject',{}).values() if x.get_object().get('/Subtype')=='/Image']
+    if len(cover_images)!=1 or abs((float(cover_images[0]['/Width'])/float(cover_images[0]['/Height']))/(A4[0]/A4[1])-1)>.02:
+        raise ValueError('PDF cover artwork must have a portrait A4 aspect ratio')
+    cover_ops=reader.pages[0].get_contents().operations
+    draws=[i for i,(_,op) in enumerate(cover_ops) if op==b'Do']
+    if len(draws)!=1 or draws[0]==0 or cover_ops[draws[0]-1][1]!=b'cm':
+        raise ValueError('PDF cover image placement missing')
+    iw,b,c,ih,x,y=map(float,cover_ops[draws[0]-1][0]);pw,ph=A4
+    if abs(b)+abs(c)>.01 or iw<=0 or ih<=0 or x<-.01 or y<-.01 or x+iw>pw+.01 or y+ih>ph+.01 or iw*ih/(pw*ph)<.98:
+        raise ValueError('PDF cover must fill the page without clipping')
+    if abs(iw/ih-float(cover_images[0]['/Width'])/float(cover_images[0]['/Height']))>1e-5:
+        raise ValueError('PDF cover image is stretched')
     def flatten(items):
         return [item for x in items for item in (flatten(x) if isinstance(x,list) else [x])]
     outlines=flatten(reader.outline);titles=[x['/Title'] for x in outlines]
@@ -339,7 +354,7 @@ def main():
     page=build_html();build_pdf(args.font,args.bold_font)
     merged=f'# {META["title"]}\n\nv{META["version"]} · {META["date"]}\n\n'+merged_md(FRONT)+'\n\n'+markdown_contents()+'\n\n'+ '\n\n'.join(merged_md(p) for p in reading_paths()[1:])
     (ROOT/'完整指南.md').write_text(merged)
-    inputs=[ROOT/'project.json',ROOT/'tools/build_release.py',ROOT/META['cover']]+reading_paths()
+    inputs=[ROOT/'project.json',ROOT/'tools/build_release.py',ROOT/META['cover'],ROOT/META.get('pdf_cover',META['cover'])]+reading_paths()
     sources_hash={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs}
     outputs={n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in ['index.html','阅读全文.html','完整指南.md',META['pdf']]}
     (ROOT/'downloads/build-manifest.json').write_text(json.dumps({'version':META['version'],'date':META['date'],'sources':sources_hash,'outputs':outputs},ensure_ascii=False,indent=2))
