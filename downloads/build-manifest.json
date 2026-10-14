@@ -1,29 +1,29 @@
 {
-  "version": "0.17.2",
+  "version": "0.18",
   "date": "2026-10-14",
   "sources": {
-    "project.json": "3c4d0aa37f3e8015633ec163c4c4bc1edd48a89a5bd66c687a4d982a1d758f1e",
-    "tools/build_release.py": "b50c4bffd4d695b9d4a4383980fa198e09f52b7504708fd04182a21ac78f61be",
+    "project.json": "38721d5c8ac120fbe92de097b75d734d2f6b18c9d6ab80a05dcee4d3314237cd",
+    "tools/build_release.py": "cae2519b0bade6547538e11598c4d65911204ef77e5e42609252df767d6cb16e",
     "assets/普通人的AI学习指南-封面-v5.png": "73026dcab3172c78f790dfa4e6a0a4530900003003f5bd148851943d4d02608b",
     "assets/普通人的AI学习指南-PDF竖版封面-v1.png": "dc4ac6719bfad73a1c4c9aa254f24cbe1fd015763a95733157544ee92e5b1292",
     "docs/免责声明与阅读说明.md": "818869ffbacc08276ad64e4aa9dd27a3b8935a2db7206b89ddeb2eb6d33bd425",
-    "docs/阅读路径与行动建议.md": "11c945555d632d8b22890b5b2b5e17a2758fbfa2df75cd20f4e4bf2ed7862246",
-    "book/01-先认识AI.md": "fd71a4fc228d0f61b65f7444c6f6e039f4d3803a446b1d681101fcb0bd980ea9",
-    "book/02-学会与AI配合.md": "30821709aaed37e344649ef2715ca988734986aac6e7a1feb321d53ae19aac55",
-    "book/03-学什么怎样学.md": "c65925c4ce93b57862973c8e4f3f0358f7fde8aee3e334dcada5e3bff2f1a3a2",
-    "book/04-找到方向开始行动.md": "d41ac049540eb13c1a37cd3a59e3db64713c361c03c35e740215856c5f9b6ed6",
-    "book/05-面对工作与机会.md": "12d86eb3d1cd3342e433bd81c2b7f5db97fc4aef7ab3e44ca9cda9506fac32fa",
-    "book/06-使用边界与日常生活.md": "b2820b5e5b2e213359124983d812ff7da74fa5d5cfcd62d34137c77df5619c9f",
+    "docs/阅读路径与行动建议.md": "90d7d6acd067d1160adcb7948159db4ecad25da138df4d6d8cc52991f77faf00",
+    "book/01-先认识AI.md": "4e14882f8d1edb6893c00b7290ac4f12bb4d56d7782d54a124e52f6d5df38bd2",
+    "book/02-学会与AI配合.md": "affc6625120ad0dee4b1f8ec4c1cc79c4076559bd7d4889e019ba85f6dbb783d",
+    "book/03-学什么怎样学.md": "806a92578cdd9cda1efdd41f5ef7aee8cb1092ae4fbc3cacf525eec343d41a94",
+    "book/04-找到方向开始行动.md": "3d1577b0f9de64357c40d84611e4d86f722653f3bcf3c493b448353da2b2cbe4",
+    "book/05-面对工作与机会.md": "1b501b0b3e7725f036ba4266d5397721238a10c240ef941ce5d859a9d2cefc20",
+    "book/06-使用边界与日常生活.md": "01a92f618cedd25f42d76a90f28ba781a17d876f4ae3f1765a3768f14a3c1e24",
     "docs/附录A-进阶原理.md": "cb7435015b9c28f98ef4eeb4390cac8c5938901ccfd23ae97fc2a56372ed582e",
     "docs/附录B-练习与模板.md": "d5903abd85935b24f8f575612d800da037c2dc51c11add4c6ebf33ba2b299685",
-    "docs/附录C-文章播客与视频.md": "010ec428d3a3dd97674c8653823cb2c4d28c59c6640de3f38c7571f3be13185e",
-    "docs/附录D-研究与官方资料.md": "274f6cc3cfcd35212a59cff0d74f88eba47ed56a7791f97be248bf0f671fcb87",
+    "docs/附录C-文章播客与视频.md": "1df0c18e3f915237aaee0cb8c14356f5950b0cf438e74f851b8ab309c19f1837",
+    "docs/附录D-研究与官方资料.md": "8059b8ce3e81de712ad87d306cf1580748d03af5bcf4c53b8357280316e715da",
     "docs/版权与使用说明.md": "d015d216b7472a809d53573d96fdfd8ba54e4053d16a1e2dd284015d087a53d1"
   },
   "outputs": {
-    "index.html": "3d1281d044e93d9e144c95d732cf9be1d9116c989c1a037c7bd38143a2bf9ad5",
-    "阅读全文.html": "90fc24420d1d2e12736452d6184f4db2f5f7be53b60a5f38fd8f2a017f280f47",
-    "完整指南.md": "17c0d52058eb867f3d6cec78d490df00f267f15d4d05d03e9b02f094e3c92b28",
-    "downloads/普通人的AI学习指南.pdf": "a7951e9259807ac688b8410b78754fe2a5ae52aa1376bc7883e4e0691bb1161e"
+    "index.html": "abd8f860c05559476d6ce254402f1ee92a14bd95941bef6c1f6bed6e7fa39e5a",
+    "阅读全文.html": "1a1e5c6ca16c88999aa92314072c3366af3fdb3f0e182e8fc3cd8f0681491804",
+    "完整指南.md": "e0a7e6dba8d1f346e76646bb9e20596a6a34c1400bf827b05305699f4f68aa25",
+    "downloads/普通人的AI学习指南.pdf": "de5e5037c6480bba42ab00de8be54b5e143fbf481127f39e48a2050730b7bfcf"
   }
 }

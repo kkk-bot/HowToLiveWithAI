@@ -8,9 +8,9 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 
 **这是一份写给正在学习、初入职场或寻找方向的普通年轻人的 AI 学习指南。用白话认识基础知识，讨论值得学的技能，再从一件容易检查的小事开始。**
 
-认识 AI，减少焦虑，学会判断，从小事开始行动。你可以按六章主线阅读，也可以从眼前的问题选读；无需购买昂贵工具、完成商业项目或公开作品。每节说明理由、做法、可尝试的动作和检查方法，同时保留投入、失败信号和使用边界。
+认识 AI，减少焦虑，学会判断，从小事开始行动。你可以按六章主线阅读，也可以从眼前的问题选读；无需购买昂贵工具、完成商业项目或公开作品。每节说明理由、做法、可尝试的动作和检查方法。正文补有通知整理、会议纪要、概念学习、技能选择和青年行动的具体示范，帮助把建议变成一次可检查的小尝试。
 
-**6 章 · 29 节正文 · 4 个附录 · v0.17.2**
+**6 章 · 29 节正文 · 4 个附录 · v0.18**
 
 > **免责声明：学习参考。** 研究、官方资料和作者建议分别标注，依据只支持写明的范围。具体方法尚未完成读者实测，不保证适合每个人，也不承诺提效、就业、收入或消除所有焦虑。请结合自己的材料权限、实际环境和适用规则核实后使用，不直接照搬示例。详见[完整说明](docs/免责声明与阅读说明.md)。
 
@@ -18,7 +18,7 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 
 | 入口 | 内容 |
 | --- | --- |
-| 下载 | [PDF v0.17.2](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/普通人的AI学习指南.pdf) · [离线阅读包](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/HowToLiveWithAI-v0.17.2.zip) · [仓库 ZIP](https://github.com/kkk-bot/HowToLiveWithAI/archive/refs/heads/main.zip) |
+| 下载 | [PDF v0.18](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/普通人的AI学习指南.pdf) · [离线阅读包](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/HowToLiveWithAI-v0.18.zip) · [仓库 ZIP](https://github.com/kkk-bot/HowToLiveWithAI/archive/refs/heads/main.zip) |
 | 阅读 | [HTML 检索页](https://kkk-bot.github.io/HowToLiveWithAI/) · [连续阅读](https://kkk-bot.github.io/HowToLiveWithAI/阅读全文.html) · [完整文字版](完整指南.md) · [阅读说明](docs/阅读路径与行动建议.md) |
 | 练习 | [入门、办公、学习与求职练习](docs/附录B-练习与模板.md) |
 | 反馈 | [填写读者反馈](https://github.com/kkk-bot/HowToLiveWithAI/issues/new?template=reader-feedback.yml) · [提交来源或事实纠错](https://github.com/kkk-bot/HowToLiveWithAI/issues/new?template=source-correction.yml) |
@@ -54,7 +54,7 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 | [A. 进阶原理](docs/附录A-进阶原理.md) | token、Transformer、训练与微调、API、训练数据与模型坍塌；按兴趣深入 |
 | [B. 练习与模板](docs/附录B-练习与模板.md) | 六个入门例子、办公验收、独立学习检查、求职与迁移、行动记录及对谈改编练习 |
 | [C. 文章、播客与视频](docs/附录C-文章播客与视频.md) | 孙宇晨与邵艾伦对谈取舍、作者文章、中文课程和 X、B 站、抖音线索 |
-| [D. 研究与官方资料](docs/附录D-研究与官方资料.md) | 按主题归档 R01—R34，保留对象、日期、适用条件和实际阅读范围；用户讲义 L01 另计 |
+| [D. 研究与官方资料](docs/附录D-研究与官方资料.md) | 按主题列出 R01—R34 的用途、原始链接与关键限制；详细核查另存维护文档，讲义 L01 另计 |
 
 ## 如何理解依据
 
@@ -65,7 +65,7 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 | 作者建议 | 可以尝试的步骤、例子和检查方法 | 尚未实测，允许继续、调整或停止 |
 | 平台与观点材料 | 选题线索、个人经验和进一步阅读入口 | 索引不等于看完视频；观点不重复算成研究证据 |
 
-当前资料分为 **34 项研究与官方资料、19 项平台线索、5 项文章与播客、1 个中文课程入口**。多数平台内容只读公开索引；对谈未完整观看，逐项说明读取限制。用户讲义仅用于原创解释与核查，不分发原文件。
+当前资料分为 **34 条研究与官方资料记录、19 项平台线索、5 项文章与播客、1 个中文课程入口**。多数平台内容只读公开索引；对谈未完整观看，逐项说明读取限制。R16、R34 是同一报告的不同阅读入口，不重复计为独立证据。资料附录提供选读简介，原日期、对象和完整取舍可查 [C 核查记录](docs/维护/附录C-详细核查记录-v0.17.2.md)、[D 核查记录](docs/维护/附录D-详细核查记录-v0.17.2.md)。用户讲义仅用于原创解释与核查，不分发原文件。
 
 时间、交付质量、实际收入和风险分别记录：生成快不代表交付快，省时不代表工资增加，没有成交记录就不声称能赚钱。
 
@@ -77,10 +77,12 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 python3 -m pip install -r requirements.txt
 python3 tools/build_release.py
 python3 tools/build_release.py --check
+python3 tools/package_release.py
+python3 tools/package_release.py --check
 node tools/test_reader.cjs
 ```
 
-生成器同步 HTML、连续阅读、完整 Markdown、PDF 与文件校验清单，检查编号、交叉引用、来源标识和 PDF 书签。PDF 默认使用 macOS 中文字体；其他系统可通过 `--font`、`--bold-font` 提供允许嵌入的中文 TrueType 字体。脚本交互检查不能替代真实浏览器或读者测试。
+生成器同步 HTML、连续阅读、完整 Markdown、PDF 与文件校验清单，检查编号、交叉引用、来源标识和 PDF 书签。打包脚本生成当前版本离线 ZIP，并逐文件核对，包含独立核查记录但不把它们插入阅读主线。PDF 默认使用 macOS 中文字体；其他系统可通过 `--font`、`--bold-font` 提供允许嵌入的中文 TrueType 字体。脚本交互检查不能替代真实浏览器或读者测试。
 
 - [导出与阅读](docs/导出与阅读.md)：格式、字体与检查方式。
 - [内容定位](docs/内容定位.md)与[章节模板](docs/条目模板.md)：结构和编辑原则。

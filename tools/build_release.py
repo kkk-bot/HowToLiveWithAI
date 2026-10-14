@@ -231,7 +231,7 @@ def build_pdf(font,bold):
                 table=Table(rows,colWidths=[(w-96)/cols]*cols,repeatRows=1,hAlign='LEFT')
                 table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#e8eeeb')),('VALIGN',(0,0),(-1,-1),'TOP'),('LINEBELOW',(0,0),(-1,-1),.4,colors.HexColor('#d6dfdc')),('LEFTPADDING',(0,0),(-1,-1),6),('RIGHTPADDING',(0,0),(-1,-1),6),('TOPPADDING',(0,0),(-1,-1),7),('BOTTOMPADDING',(0,0),(-1,-1),7)]))
                 result.extend([table,Spacer(1,10)])
-            elif kind=='code':result.append(KeepTogether([Paragraph(inline(v,base,pdf=True).replace('\n','<br/>'),styles['small'])]))
+            elif kind=='code':result.append(Paragraph(inline(v,base,pdf=True).replace('\n','<br/>'),styles['small']))
             else:
                 style='small' if v.startswith('**依据与范围：**') else 'p'
                 result.append(para(('• ' if kind=='li' else '')+v,style,base))
@@ -250,18 +250,22 @@ def build_pdf(font,bold):
     for i,name in enumerate(DOCS):
         path=ROOT/'docs'/name;fs=flows(path.read_text(),path.parent,PATHS['docs/'+name][1:])
         # Short source records stay together; chapter-sized sections remain splittable.
+        def append_record(record):
+            height=sum(f.wrap(w-96,h-109)[1]+f.getSpaceBefore()+f.getSpaceAfter() for f in record)
+            if height>240:story.extend(record)
+            else:story.append(KeepTogether(record))
         group=[]
         for f in fs:
             is_source=isinstance(f,Paragraph) and re.match(r'^(R|P|M|C|L)\d+ ·',f.getPlainText())
             is_heading=isinstance(f,Paragraph) and f.style.name in ['chapter','section','subsection']
-            if group and is_heading:story.append(KeepTogether(group));group=[]
+            if group and is_heading:append_record(group);group=[]
             if is_source:
                 lead=[]
                 if story and isinstance(story[-1],Paragraph) and story[-1].style.name=='section':lead=[story.pop()]
                 group=lead+[f]
             elif group:group.append(f)
             else:story.append(f)
-        if group:story.append(KeepTogether(group))
+        if group:append_record(group)
         if i<len(DOCS)-1:story.append(PageBreak())
     doc.multiBuild(story);return output
 
