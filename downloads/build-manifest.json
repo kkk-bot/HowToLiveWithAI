@@ -1,0 +1,28 @@
+{
+  "version": "0.17",
+  "date": "2026-10-14",
+  "sources": {
+    "project.json": "13c46b7c96d8507132d2dc470a1e77867075164ec4230a4cb61a2660f9b2a34b",
+    "tools/build_release.py": "eb4b57048120f09a6af381f01f1436037c3143b4ddce4096289167126db1703a",
+    "assets/普通人的AI学习指南-封面-v5.png": "73026dcab3172c78f790dfa4e6a0a4530900003003f5bd148851943d4d02608b",
+    "docs/免责声明与阅读说明.md": "818869ffbacc08276ad64e4aa9dd27a3b8935a2db7206b89ddeb2eb6d33bd425",
+    "docs/阅读路径与行动建议.md": "11c945555d632d8b22890b5b2b5e17a2758fbfa2df75cd20f4e4bf2ed7862246",
+    "book/01-先认识AI.md": "fd71a4fc228d0f61b65f7444c6f6e039f4d3803a446b1d681101fcb0bd980ea9",
+    "book/02-学会与AI配合.md": "30821709aaed37e344649ef2715ca988734986aac6e7a1feb321d53ae19aac55",
+    "book/03-学什么怎样学.md": "c65925c4ce93b57862973c8e4f3f0358f7fde8aee3e334dcada5e3bff2f1a3a2",
+    "book/04-找到方向开始行动.md": "d41ac049540eb13c1a37cd3a59e3db64713c361c03c35e740215856c5f9b6ed6",
+    "book/05-面对工作与机会.md": "12d86eb3d1cd3342e433bd81c2b7f5db97fc4aef7ab3e44ca9cda9506fac32fa",
+    "book/06-使用边界与日常生活.md": "b2820b5e5b2e213359124983d812ff7da74fa5d5cfcd62d34137c77df5619c9f",
+    "docs/附录A-进阶原理.md": "cb7435015b9c28f98ef4eeb4390cac8c5938901ccfd23ae97fc2a56372ed582e",
+    "docs/附录B-练习与模板.md": "d5903abd85935b24f8f575612d800da037c2dc51c11add4c6ebf33ba2b299685",
+    "docs/附录C-文章播客与视频.md": "010ec428d3a3dd97674c8653823cb2c4d28c59c6640de3f38c7571f3be13185e",
+    "docs/附录D-研究与官方资料.md": "274f6cc3cfcd35212a59cff0d74f88eba47ed56a7791f97be248bf0f671fcb87",
+    "docs/版权与使用说明.md": "d015d216b7472a809d53573d96fdfd8ba54e4053d16a1e2dd284015d087a53d1"
+  },
+  "outputs": {
+    "index.html": "ffca027c788a2c129df0cb0f3d2b586738dc99fe055aa71828d0c3bb7b40888f",
+    "阅读全文.html": "17e1b30dc39edca4115fce549bf287bfd6873717a3b6fb31f18f7f790e952950",
+    "完整指南.md": "b08d25eddd78aabce692a82abbf7d8f78b8d5c3514df3379ea00ffb985bc5878",
+    "downloads/普通人的AI学习指南.pdf": "4eee7666e776dccaabf64479b99798ebd9d2bf24dacb9a1a40659e61a36f0f6b"
+  }
+}

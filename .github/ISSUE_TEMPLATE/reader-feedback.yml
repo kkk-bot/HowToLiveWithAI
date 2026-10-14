@@ -1,0 +1,30 @@
+name: 读者反馈
+description: 阅读、练习或页面使用中的问题
+title: "[反馈] "
+body:
+  - type: markdown
+    attributes:
+      value: "请只提供公开或脱敏材料，不提交身份信息、账户密钥、私人聊天或工作机密。"
+  - type: input
+    id: location
+    attributes:
+      label: 章节或页面
+      placeholder: "例如 2.3、B.1 或 HTML 检索页"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 遇到什么问题
+      description: 写明原句、操作或不清楚的地方。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 条件与复现步骤
+      description: 页面问题可说明浏览器、版本和步骤；练习反馈说明材料性质与检查方法。
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建议或补充来源

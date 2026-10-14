@@ -1,0 +1,28 @@
+name: 来源或事实纠错
+description: 提交可核查的原始资料与修改建议
+title: "[纠错] "
+body:
+  - type: input
+    id: location
+    attributes:
+      label: 节号与来源编号
+      placeholder: "例如 3.4、R22"
+    validations:
+      required: true
+  - type: textarea
+    id: original
+    attributes:
+      label: 需要修正的原句与原因
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: 原始来源与支持位置
+      description: 提供公开链接、日期和相关章节；摘要与完整审查分开说明。
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: 建议改法及适用限制
