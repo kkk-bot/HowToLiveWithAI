@@ -10,7 +10,7 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 
 认识 AI，减少焦虑，学会判断，从小事开始行动。你可以按六章主线阅读，也可以从眼前的问题选读；无需购买昂贵工具、完成商业项目或公开作品。每节说明理由、做法、可尝试的动作和检查方法，同时保留投入、失败信号和使用边界。
 
-**6 章 · 29 节正文 · 4 个附录 · v0.17**
+**6 章 · 29 节正文 · 4 个附录 · v0.17.1**
 
 > **免责声明：学习参考。** 研究、官方资料和作者建议分别标注，依据只支持写明的范围。具体方法尚未完成读者实测，不保证适合每个人，也不承诺提效、就业、收入或消除所有焦虑。请结合自己的材料权限、实际环境和适用规则核实后使用，不直接照搬示例。详见[完整说明](docs/免责声明与阅读说明.md)。
 
@@ -18,7 +18,7 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 
 | 入口 | 内容 |
 | --- | --- |
-| 下载 | [PDF v0.17](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/普通人的AI学习指南.pdf) · [离线阅读包](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/HowToLiveWithAI-v0.17.zip) · [仓库 ZIP](https://github.com/kkk-bot/HowToLiveWithAI/archive/refs/heads/main.zip) |
+| 下载 | [PDF v0.17.1](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/普通人的AI学习指南.pdf) · [离线阅读包](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/HowToLiveWithAI-v0.17.1.zip) · [仓库 ZIP](https://github.com/kkk-bot/HowToLiveWithAI/archive/refs/heads/main.zip) |
 | 阅读 | [HTML 检索页](https://kkk-bot.github.io/HowToLiveWithAI/) · [连续阅读](https://kkk-bot.github.io/HowToLiveWithAI/阅读全文.html) · [完整文字版](完整指南.md) · [阅读说明](docs/阅读路径与行动建议.md) |
 | 练习 | [入门、办公、学习与求职练习](docs/附录B-练习与模板.md) |
 | 反馈 | [填写读者反馈](https://github.com/kkk-bot/HowToLiveWithAI/issues/new?template=reader-feedback.yml) · [提交来源或事实纠错](https://github.com/kkk-bot/HowToLiveWithAI/issues/new?template=source-correction.yml) |
@@ -43,7 +43,7 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 
 - 从头读：先看[阅读说明](docs/阅读路径与行动建议.md)，再进入第 1—4 章。工作与机会、家庭使用按需要选读。
 - 带着问题读：在 HTML 中搜索关键词或节号，并按章筛选。搜索范围是 29 节正文，条件保留在网址中；点击目录或来源链接会解除筛选并展开目标。
-- 通读或打印：连续阅读版展开全部内容，忽略搜索参数。PDF 包含分层目录、66 个书签与来源链接；横版封面保留原比例，内文为 A4 竖版。
+- 通读或打印：连续阅读版展开全部内容，忽略搜索参数。PDF 包含分层目录、66 个书签与来源链接；封面与内文统一为 A4 竖版，封面图片等比居中完整显示。
 - 动手练：从附录 B 选一个能用原材料检查的任务，记录“想解决什么、检查了什么、下一次改哪一点”。不要求统一项目、公开成果或连续打卡。
 - 不用照搬：例子、提示语和三种青年情境均由本项目编写；目前尚未完成读者实测。涉及课程、单位或平台要求时需另行确认。
 

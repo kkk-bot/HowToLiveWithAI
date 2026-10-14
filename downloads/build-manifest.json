@@ -1,9 +1,9 @@
 {
-  "version": "0.17",
+  "version": "0.17.1",
   "date": "2026-10-14",
   "sources": {
-    "project.json": "13c46b7c96d8507132d2dc470a1e77867075164ec4230a4cb61a2660f9b2a34b",
-    "tools/build_release.py": "eb4b57048120f09a6af381f01f1436037c3143b4ddce4096289167126db1703a",
+    "project.json": "aebaa7c263618def6861cf782c1d48b9a8124c9aeedf8fe9adb7fe3f14637fb7",
+    "tools/build_release.py": "4c03dc45e33a8aaa3be2b8abc8a65534255e98f4d050ff3112055d6a215a8300",
     "assets/普通人的AI学习指南-封面-v5.png": "73026dcab3172c78f790dfa4e6a0a4530900003003f5bd148851943d4d02608b",
     "docs/免责声明与阅读说明.md": "818869ffbacc08276ad64e4aa9dd27a3b8935a2db7206b89ddeb2eb6d33bd425",
     "docs/阅读路径与行动建议.md": "11c945555d632d8b22890b5b2b5e17a2758fbfa2df75cd20f4e4bf2ed7862246",
@@ -20,9 +20,9 @@
     "docs/版权与使用说明.md": "d015d216b7472a809d53573d96fdfd8ba54e4053d16a1e2dd284015d087a53d1"
   },
   "outputs": {
-    "index.html": "ffca027c788a2c129df0cb0f3d2b586738dc99fe055aa71828d0c3bb7b40888f",
-    "阅读全文.html": "17e1b30dc39edca4115fce549bf287bfd6873717a3b6fb31f18f7f790e952950",
-    "完整指南.md": "b08d25eddd78aabce692a82abbf7d8f78b8d5c3514df3379ea00ffb985bc5878",
-    "downloads/普通人的AI学习指南.pdf": "4eee7666e776dccaabf64479b99798ebd9d2bf24dacb9a1a40659e61a36f0f6b"
+    "index.html": "02c64d37c3490a0d8575a556732c67ee2f0c8044710064ef92dcbabb0faf17c1",
+    "阅读全文.html": "0b007e9cf0df6a24546884ef797ce706ca26c490088b19064def0e32b6a79df3",
+    "完整指南.md": "41bbf3f03423f7b3875d397e54f516e87a9fa6eb05528486980ece55568ca8b7",
+    "downloads/普通人的AI学习指南.pdf": "bf71559eafad17f9b448764b7f65802c34ed31ca03eebd4b9c57c32e0ed0a461"
   }
 }

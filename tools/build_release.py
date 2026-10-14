@@ -191,15 +191,21 @@ def build_pdf(font,bold):
       'cell':ParagraphStyle('cell',fontName='Guide',fontSize=8.5,leading=13,wordWrap='CJK')}
     w,h=A4;output=ROOT/META['pdf'];output.parent.mkdir(exist_ok=True)
     image_w,image_h=ImageReader(str(ROOT/META['cover'])).getSize()
-    cover_size=(h,h*image_h/image_w) if image_w>image_h else A4
+    # The artwork can be landscape; the PDF page must match the portrait body.
+    # Fit the entire image inside A4 without stretching or cropping its text.
+    cover_scale=min(w/image_w,h/image_h)
+    cover_w,cover_h=image_w*cover_scale,image_h*cover_scale
+    cover_x,cover_y=(w-cover_w)/2,(h-cover_h)/2
     def decorate(canvas,doc):
-        if doc.page==1:canvas.drawImage(str(ROOT/META['cover']),0,0,width=cover_size[0],height=cover_size[1],preserveAspectRatio=True,anchor='c');return
+        if doc.page==1:
+            canvas.drawImage(str(ROOT/META['cover']),cover_x,cover_y,width=cover_w,height=cover_h,preserveAspectRatio=True,anchor='c')
+            return
         canvas.saveState();canvas.setStrokeColor(colors.HexColor('#d6dfdc'));canvas.line(48,h-41,w-48,h-41)
         canvas.setFont('Guide',8);canvas.setFillColor(colors.HexColor('#5a6a71'));canvas.drawString(48,h-31,META['title'])
         canvas.drawRightString(w-48,28,f'v{META["version"]} · {META["date"]}  /  {doc.page}');canvas.restoreState()
     doc=GuideDoc(str(output),pagesize=A4,title=META['title'],author='HowToLiveWithAI',leftMargin=48,rightMargin=48,topMargin=61,bottomMargin=48)
     doc.addPageTemplates([
-        PageTemplate(id='cover',frames=[Frame(0,0,cover_size[0],cover_size[1],id='cover-body',leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPage=decorate,pagesize=cover_size),
+        PageTemplate(id='cover',frames=[Frame(0,0,w,h,id='cover-body',leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPage=decorate,pagesize=A4),
         PageTemplate(id='main',frames=[Frame(48,48,w-96,h-109,id='body',leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPage=decorate,pagesize=A4)
     ])
     def para(text,style='p',base=ROOT):return Paragraph(inline(text,base,pdf=True),styles[style])
@@ -306,6 +312,10 @@ def validate(page):
     for p in reading_paths():
         if merged_md(p) not in merged:raise ValueError('Merged Markdown incomplete '+p.name)
     reader=PdfReader(ROOT/META['pdf']);text='\n'.join(p.extract_text() or '' for p in reader.pages)
+    for number,p in enumerate(reader.pages,1):
+        for box in (p.mediabox,p.cropbox):
+            if any(abs(float(value)-expected)>.01 for value,expected in zip(box,(0,0,*A4))) or p.rotation%360:
+                raise ValueError(f'PDF page {number}: expected unrotated portrait A4')
     def flatten(items):
         return [item for x in items for item in (flatten(x) if isinstance(x,list) else [x])]
     outlines=flatten(reader.outline);titles=[x['/Title'] for x in outlines]
