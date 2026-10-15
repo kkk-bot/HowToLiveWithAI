@@ -1,8 +1,8 @@
 {
   "title": "普通人的 AI 学习指南",
   "subtitle": "认识 AI，减少焦虑，学会判断，从小事开始行动",
-  "version": "0.18",
-  "date": "2026-10-14",
+  "version": "0.18.1",
+  "date": "2026-10-15",
   "status": "内容与阅读版初稿；具体操作尚未完成读者实测",
   "pdf": "downloads/普通人的AI学习指南.pdf",
   "cover": "assets/普通人的AI学习指南-封面-v5.png",
@@ -10,5 +10,23 @@
   "license_notice": "本项目原创内容采用 CC BY 4.0；第三方材料遵循各自的权利与许可。",
   "repository": "https://github.com/kkk-bot/HowToLiveWithAI",
   "homepage": "https://kkk-bot.github.io/HowToLiveWithAI/",
-  "pdf_cover": "assets/普通人的AI学习指南-PDF竖版封面-v1.png"
+  "pdf_cover": "assets/普通人的AI学习指南-PDF竖版封面-v1.png",
+  "author": {
+    "name": "YOLO",
+    "bio": "这份指南面向普通年轻人，分享 AI 基础知识、实用方法与行动建议。",
+    "channels": [
+      {
+        "platform": "小红书",
+        "account_label": "小红书号",
+        "account": "4287159956",
+        "image": "assets/作者-小红书.jpg"
+      },
+      {
+        "platform": "抖音",
+        "account_label": "抖音号",
+        "account": "793147359",
+        "image": "assets/作者-抖音.jpg"
+      }
+    ]
+  }
 }

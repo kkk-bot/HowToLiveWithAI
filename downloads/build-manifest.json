@@ -1,11 +1,13 @@
 {
-  "version": "0.18",
-  "date": "2026-10-14",
+  "version": "0.18.1",
+  "date": "2026-10-15",
   "sources": {
-    "project.json": "38721d5c8ac120fbe92de097b75d734d2f6b18c9d6ab80a05dcee4d3314237cd",
-    "tools/build_release.py": "cae2519b0bade6547538e11598c4d65911204ef77e5e42609252df767d6cb16e",
+    "project.json": "563089d1da51a939fb6340eae79f55bdf7c2b9f0e1307d5f1597438415c38cfe",
+    "tools/build_release.py": "79619a971062175034743434fcb2c2da94e93c1119709e36c85d91c0d93d2ee7",
     "assets/普通人的AI学习指南-封面-v5.png": "73026dcab3172c78f790dfa4e6a0a4530900003003f5bd148851943d4d02608b",
     "assets/普通人的AI学习指南-PDF竖版封面-v1.png": "dc4ac6719bfad73a1c4c9aa254f24cbe1fd015763a95733157544ee92e5b1292",
+    "assets/作者-小红书.jpg": "fbc2eab3b5af6972ba3fa3745855a8ef95362de17dacf38535d8919b4fca8978",
+    "assets/作者-抖音.jpg": "58b6f5d275e478bd2ff07620196297be6596ce0231b487aa7723519893b71e12",
     "docs/免责声明与阅读说明.md": "818869ffbacc08276ad64e4aa9dd27a3b8935a2db7206b89ddeb2eb6d33bd425",
     "docs/阅读路径与行动建议.md": "90d7d6acd067d1160adcb7948159db4ecad25da138df4d6d8cc52991f77faf00",
     "book/01-先认识AI.md": "4e14882f8d1edb6893c00b7290ac4f12bb4d56d7782d54a124e52f6d5df38bd2",
@@ -21,9 +23,9 @@
     "docs/版权与使用说明.md": "d015d216b7472a809d53573d96fdfd8ba54e4053d16a1e2dd284015d087a53d1"
   },
   "outputs": {
-    "index.html": "abd8f860c05559476d6ce254402f1ee92a14bd95941bef6c1f6bed6e7fa39e5a",
-    "阅读全文.html": "1a1e5c6ca16c88999aa92314072c3366af3fdb3f0e182e8fc3cd8f0681491804",
-    "完整指南.md": "e0a7e6dba8d1f346e76646bb9e20596a6a34c1400bf827b05305699f4f68aa25",
-    "downloads/普通人的AI学习指南.pdf": "de5e5037c6480bba42ab00de8be54b5e143fbf481127f39e48a2050730b7bfcf"
+    "index.html": "3ff5f0ef5df28f874b19aa791e7c5f72ea39a6d2e3e540130544b1dcb54b67ba",
+    "阅读全文.html": "0d163757ff3f19ad96b88e9d55d9e2e67785c2551fab101ae99be61519e10f71",
+    "完整指南.md": "88ba0bc7b160166e49c89b07b44388e8d0531c38336b9a775222ae0e8807b717",
+    "downloads/普通人的AI学习指南.pdf": "1b907c7ce50383eae5d3979d22b6320fa3e34bb89ff40c982361eeccccfcceb0"
   }
 }

@@ -9,7 +9,7 @@ from reportlab.lib import colors
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.utils import ImageReader
-from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer, PageBreak, Table, TableStyle, KeepTogether, NextPageTemplate
+from reportlab.platypus import BaseDocTemplate, PageTemplate, Frame, Paragraph, Spacer, PageBreak, Table, TableStyle, KeepTogether, NextPageTemplate, Image
 from reportlab.platypus.tableofcontents import TableOfContents
 from pypdf import PdfReader
 
@@ -153,7 +153,10 @@ def contents_html():
 
 def build_html():
     nav=''.join(f'<option value="{c["id"]}">第 {c["id"]} 章 · {html.escape(c["title"])}</option>' for c in CHAPTERS)
-    body=[f'<details id="disclaimer"><summary>免责声明与阅读说明</summary><div class="document">{render_md(FRONT.read_text(),FRONT.parent,document=True)}</div></details>',contents_html(),f'<details id="reading-path" open><summary>阅读说明：从眼前的问题开始</summary><div class="document">{render_md(INTRO.read_text(),INTRO.parent,document=True)}</div></details>']
+    author=META['author']
+    cards=''.join(f'<figure style="margin:0;flex:1;min-width:210px;max-width:300px"><h3>{html.escape(c["platform"])}</h3><img src="{html.escape(c["image"],quote=True)}" alt="{html.escape(author["name"]+" 的"+c["platform"]+"账号二维码",quote=True)}" style="width:100%;height:auto;display:block"><figcaption>{html.escape(c["account_label"])}：{html.escape(c["account"])}</figcaption></figure>' for c in author['channels'])
+    author_section=f'<details id="author"><summary>作者介绍</summary><div class="document"><h2>作者介绍</h2><p><b>{html.escape(author["name"])}</b></p><p>{html.escape(author["bio"])}</p><div style="display:flex;gap:24px;flex-wrap:wrap">{cards}</div><p>用对应 App 扫码；同一部手机阅读时，可先保存图片，再从 App 扫一扫中识别相册图片。</p></div></details>'
+    body=[author_section,f'<details id="disclaimer"><summary>免责声明与阅读说明</summary><div class="document">{render_md(FRONT.read_text(),FRONT.parent,document=True)}</div></details>',contents_html(),f'<details id="reading-path" open><summary>阅读说明：从眼前的问题开始</summary><div class="document">{render_md(INTRO.read_text(),INTRO.parent,document=True)}</div></details>']
     for c in CHAPTERS:
         body.append(f'<section data-section><h2 class="chapter" id="chapter-{c["id"]}">第 {c["id"]} 章 · {html.escape(c["title"])}</h2><div class="chapter-lead">{render_md(c["lead"],c["path"].parent)}</div>')
         for e in c['entries']:body.append(f'<article class="entry" id="entry-{e["id"]}" data-chapter="{c["id"]}"><h3>{e["id"]} {html.escape(e["title"])}</h3>'+render_md(e['body'],c['path'].parent,entry=True)+'</article>')
@@ -206,7 +209,7 @@ def build_pdf(font,bold):
         canvas.saveState();canvas.setStrokeColor(colors.HexColor('#d6dfdc'));canvas.line(48,h-41,w-48,h-41)
         canvas.setFont('Guide',8);canvas.setFillColor(colors.HexColor('#5a6a71'));canvas.drawString(48,h-31,META['title'])
         canvas.drawRightString(w-48,28,f'v{META["version"]} · {META["date"]}  /  {doc.page}');canvas.restoreState()
-    doc=GuideDoc(str(output),pagesize=A4,title=META['title'],author='HowToLiveWithAI',leftMargin=48,rightMargin=48,topMargin=61,bottomMargin=48)
+    doc=GuideDoc(str(output),pagesize=A4,title=META['title'],author=META['author']['name'],leftMargin=48,rightMargin=48,topMargin=61,bottomMargin=48)
     doc.addPageTemplates([
         PageTemplate(id='cover',frames=[Frame(0,0,w,h,id='cover-body',leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPage=decorate,pagesize=A4),
         PageTemplate(id='main',frames=[Frame(48,48,w-96,h-109,id='body',leftPadding=0,rightPadding=0,topPadding=0,bottomPadding=0)],onPage=decorate,pagesize=A4)
@@ -237,6 +240,18 @@ def build_pdf(font,bold):
                 result.append(para(('• ' if kind=='li' else '')+v,style,base))
         return result
     story=[Spacer(1,1),NextPageTemplate('main'),PageBreak()]
+    author=META['author']
+    story.extend([heading('作者介绍','author'),para('**'+author['name']+'**','h2'),para(author['bio']),Spacer(1,18)])
+    card_width=(w-96-18)/2
+    labels=[];pictures=[];instructions=[]
+    for channel in author['channels']:
+        labels.append([para('**'+channel['platform']+'**'),para(channel['account_label']+'：'+channel['account'],'small')])
+        iw,ih=ImageReader(str(ROOT/channel['image'])).getSize();scale=min((card_width-20)/iw,340/ih)
+        pictures.append(Image(str(ROOT/channel['image']),width=iw*scale,height=ih*scale))
+        instructions.append(para('打开'+channel['platform']+'扫一扫','small'))
+    cards=Table([[labels[0],'',labels[1]],[pictures[0],'',pictures[1]],[instructions[0],'',instructions[1]]],colWidths=[card_width,18,card_width],hAlign='LEFT')
+    cards.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('ALIGN',(0,1),(-1,1),'CENTER'),('BOX',(0,0),(0,-1),.5,colors.HexColor('#d6dfdc')),('BOX',(2,0),(2,-1),.5,colors.HexColor('#d6dfdc')),('BACKGROUND',(0,0),(0,0),colors.HexColor('#eef3f5')),('BACKGROUND',(2,0),(2,0),colors.HexColor('#eef3f5')),('LEFTPADDING',(0,0),(-1,-1),10),('RIGHTPADDING',(0,0),(-1,-1),10),('TOPPADDING',(0,0),(-1,-1),10),('BOTTOMPADDING',(0,0),(-1,-1),10)]))
+    story.extend([cards,Spacer(1,18),para('用对应 App 扫码；同一部手机阅读时，可先保存图片，再从 App 扫一扫中识别相册图片。','small'),PageBreak()])
     story.extend(flows(FRONT.read_text(),FRONT.parent,'disclaimer'));story.append(PageBreak())
     story.append(heading('目录','contents'))
     toc=TableOfContents();toc.levelStyles=[ParagraphStyle('toc0',fontName='GuideBold',fontSize=10.5,leading=17,spaceBefore=7,wordWrap='CJK'),ParagraphStyle('toc1',fontName='Guide',fontSize=9.5,leading=15,leftIndent=14,spaceBefore=2,wordWrap='CJK')]
@@ -279,6 +294,12 @@ def merged_md(path):
 
 def reading_paths():return [FRONT,INTRO]+[c['path'] for c in CHAPTERS]+[ROOT/'docs'/n for n in DOCS]
 
+def author_markdown():
+    author=META['author'];lines=['## 作者介绍','',f'**{author["name"]}**','',author['bio'],'']
+    for channel in author['channels']:
+        lines.extend([f'### {channel["platform"]}',f'{channel["account_label"]}：{channel["account"]}','',f'![{author["name"]} 的{channel["platform"]}账号二维码]({channel["image"]})',''])
+    return '\n'.join(lines)
+
 def markdown_contents():
     lines=['## 目录']
     for c in CHAPTERS:
@@ -299,7 +320,7 @@ def validate(page):
     ids=re.findall(r'\bid="([^"]+)"',page)
     if len(set(ids))!=len(ids):raise ValueError('Duplicate HTML anchors')
     expected=[e['id'] for e in ENTRIES]
-    order=['disclaimer','contents','reading-path']+[f'chapter-{i}' for i in range(1,7)]+['appendix-a','appendix-b','appendix-c','appendix-d','copyright']
+    order=['author','disclaimer','contents','reading-path']+[f'chapter-{i}' for i in range(1,7)]+['appendix-a','appendix-b','appendix-c','appendix-d','copyright']
     positions=[page.index(f'id="{key}"') for key in order]
     if positions!=sorted(positions):raise ValueError('HTML document order differs')
     if re.findall(r'<article class="entry" id="entry-(\d+\.\d+)"',page)!=expected:raise ValueError('HTML section order differs')
@@ -316,6 +337,10 @@ def validate(page):
     for prefix,count in [('r',34),('p',19),('m',5),('c',1),('l',1)]:
         if {x for x in ids if re.fullmatch(prefix+r'\d+',x)}!={f'{prefix}{i:02}' for i in range(1,count+1)}:raise ValueError('Source identifier coverage '+prefix)
     merged=(ROOT/'完整指南.md').read_text()
+    if author_markdown() not in merged:raise ValueError('Merged Markdown author missing')
+    for channel in META['author']['channels']:
+        if f'src="{channel["image"]}"' not in page or channel['account'] not in page:
+            raise ValueError('HTML author channel missing')
     for p in reading_paths():
         if merged_md(p) not in merged:raise ValueError('Merged Markdown incomplete '+p.name)
     reader=PdfReader(ROOT/META['pdf']);text='\n'.join(p.extract_text() or '' for p in reader.pages)
@@ -340,7 +365,13 @@ def validate(page):
     outlines=flatten(reader.outline);titles=[x['/Title'] for x in outlines]
     bodytitles=[f'{e["id"]} {e["title"]}' for e in ENTRIES]
     if [t for t in titles if re.match(r'^\d+\.\d+ ',t)]!=bodytitles:raise ValueError('PDF section bookmarks differ')
-    if titles[0]!='免责声明与阅读说明' or titles[-1]!='版权与使用说明':raise ValueError('Front/back bookmark order')
+    if titles[:2]!=['作者介绍','免责声明与阅读说明'] or titles[-1]!='版权与使用说明':raise ValueError('Front/back bookmark order')
+    if reader.get_destination_page_number(outlines[0])!=1 or reader.get_destination_page_number(outlines[1])!=2:
+        raise ValueError('Author and disclaimer must be on pages 2 and 3')
+    author_text=reader.pages[1].extract_text() or ''
+    author_images=[x.get_object() for x in reader.pages[1]['/Resources'].get('/XObject',{}).values() if x.get_object().get('/Subtype')=='/Image']
+    if len(author_images)!=2 or any(c['account'] not in author_text for c in META['author']['channels']):
+        raise ValueError('PDF author images or account numbers missing')
     for title in titles:
         if title.replace(' ','') not in text.replace(' ','').replace('\n',''):raise ValueError('PDF title missing '+title)
     for x in outlines:
@@ -356,9 +387,9 @@ def main():
     parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');parser.add_argument('--font',default='/System/Library/Fonts/STHeiti Light.ttc');parser.add_argument('--bold-font',default='/System/Library/Fonts/STHeiti Medium.ttc');args=parser.parse_args()
     if args.check:validate((ROOT/'index.html').read_text());return
     page=build_html();build_pdf(args.font,args.bold_font)
-    merged=f'# {META["title"]}\n\nv{META["version"]} · {META["date"]}\n\n'+merged_md(FRONT)+'\n\n'+markdown_contents()+'\n\n'+ '\n\n'.join(merged_md(p) for p in reading_paths()[1:])
+    merged=f'# {META["title"]}\n\nv{META["version"]} · {META["date"]}\n\n'+author_markdown()+'\n\n'+merged_md(FRONT)+'\n\n'+markdown_contents()+'\n\n'+ '\n\n'.join(merged_md(p) for p in reading_paths()[1:])
     (ROOT/'完整指南.md').write_text(merged)
-    inputs=[ROOT/'project.json',ROOT/'tools/build_release.py',ROOT/META['cover'],ROOT/META.get('pdf_cover',META['cover'])]+reading_paths()
+    inputs=[ROOT/'project.json',ROOT/'tools/build_release.py',ROOT/META['cover'],ROOT/META.get('pdf_cover',META['cover'])]+[ROOT/c['image'] for c in META['author']['channels']]+reading_paths()
     sources_hash={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs}
     outputs={n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in ['index.html','阅读全文.html','完整指南.md',META['pdf']]}
     (ROOT/'downloads/build-manifest.json').write_text(json.dumps({'version':META['version'],'date':META['date'],'sources':sources_hash,'outputs':outputs},ensure_ascii=False,indent=2))

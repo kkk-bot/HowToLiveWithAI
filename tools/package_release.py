@@ -15,7 +15,7 @@ def public_files():
         'downloads/普通人的AI学习指南.pdf', 'downloads/build-manifest.json',
     ]
     files = {ROOT / name for name in names}
-    for pattern in ('book/*.md', 'docs/**/*.md', 'assets/*.png',
+    for pattern in ('book/*.md', 'docs/**/*.md', 'assets/*.png', 'assets/*.jpg',
                     'assets/*.md', 'tools/*.py', 'tools/*.cjs', '.github/**/*.yml'):
         files.update(ROOT.glob(pattern))
     return sorted(files)
