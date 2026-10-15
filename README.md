@@ -22,9 +22,20 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 
 本作品由 YOLO 创作、发布并持续维护。
 
-这份指南面向普通年轻人，分享 AI 基础知识、实用方法与行动建议。欢迎在抖音交流学习与使用经验。
+这份指南面向普通年轻人，分享 AI 基础知识、实用方法与行动建议。欢迎在小红书、抖音交流学习与使用经验。
 
-**抖音号：793147359**
+<table>
+  <tr>
+    <th>小红书</th>
+    <th>抖音</th>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="assets/作者-小红书.jpg" width="280" alt="YOLO 的小红书账号二维码"><br>小红书号：4287159956</td>
+    <td align="center" valign="top"><img src="assets/作者-抖音.jpg" width="280" alt="YOLO 的抖音账号二维码"><br>抖音号：793147359</td>
+  </tr>
+</table>
+
+用对应 App 扫码；同一部手机阅读时，可先保存图片，再从 App 扫一扫中识别相册图片。
 
 ## [阅读与检索](https://kkk-bot.github.io/HowToLiveWithAI/) · [连续阅读](https://kkk-bot.github.io/HowToLiveWithAI/阅读全文.html)
 
