@@ -14,7 +14,26 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 
 > **免责声明：学习参考。** 研究、官方资料和作者建议分别标注，依据只支持写明的范围。具体方法尚未完成读者实测，不保证适合每个人，也不承诺提效、就业、收入或消除所有焦虑。请结合自己的材料权限、实际环境和适用规则核实后使用，不直接照搬示例。详见[完整说明](docs/免责声明与阅读说明.md)。
 
-### [阅读与检索](https://kkk-bot.github.io/HowToLiveWithAI/) · [连续阅读](https://kkk-bot.github.io/HowToLiveWithAI/阅读全文.html)
+## 作者介绍
+
+**YOLO**
+
+这份指南面向普通年轻人，分享 AI 基础知识、实用方法与行动建议。欢迎在小红书、抖音交流学习与使用经验。
+
+<table>
+  <tr>
+    <th>小红书</th>
+    <th>抖音</th>
+  </tr>
+  <tr>
+    <td align="center" valign="top"><img src="assets/作者-小红书.jpg" width="280" alt="YOLO 的小红书账号二维码"><br>小红书号：4287159956</td>
+    <td align="center" valign="top"><img src="assets/作者-抖音.jpg" width="280" alt="YOLO 的抖音账号二维码"><br>抖音号：793147359</td>
+  </tr>
+</table>
+
+用对应 App 扫码；同一部手机阅读时，可先保存图片，再从 App 扫一扫中识别相册图片。
+
+## [阅读与检索](https://kkk-bot.github.io/HowToLiveWithAI/) · [连续阅读](https://kkk-bot.github.io/HowToLiveWithAI/阅读全文.html)
 
 | 入口 | 内容 |
 | --- | --- |
@@ -88,25 +107,6 @@ node tools/test_reader.cjs
 - [内容定位](docs/内容定位.md)与[章节模板](docs/条目模板.md)：结构和编辑原则。
 - [内容迁移表](docs/内容迁移表.md)：旧版内容如何进入六章。
 - [来源记录](docs/来源记录.md)与[资料采纳记录](docs/资料采纳记录.md)：保留历次检索和取舍，当时的旧编号按历史版本理解。
-
-## 作者介绍
-
-**YOLO**
-
-这份指南面向普通年轻人，分享 AI 基础知识、实用方法与行动建议。欢迎在小红书、抖音交流学习与使用经验。
-
-<table>
-  <tr>
-    <th>小红书</th>
-    <th>抖音</th>
-  </tr>
-  <tr>
-    <td align="center" valign="top"><img src="assets/作者-小红书.jpg" width="280" alt="YOLO 的小红书账号二维码"><br>小红书号：4287159956</td>
-    <td align="center" valign="top"><img src="assets/作者-抖音.jpg" width="280" alt="YOLO 的抖音账号二维码"><br>抖音号：793147359</td>
-  </tr>
-</table>
-
-用对应 App 扫码；同一部手机阅读时，可先保存图片，再从 App 扫一扫中识别相册图片。
 
 ## 参与完善
 
