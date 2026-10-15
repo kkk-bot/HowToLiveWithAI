@@ -160,7 +160,7 @@ def build_html():
     nav=''.join(f'<option value="{c["id"]}">第 {c["id"]} 章 · {html.escape(c["title"])}</option>' for c in CHAPTERS)
     author=META['author']
     accounts=''.join(f'<p><b>{html.escape(c["account_label"])}：{html.escape(c["account"])}</b></p>' for c in author['channels'])
-    author_section=f'<details id="author"><summary>作者介绍</summary><div class="document"><h2>作者介绍</h2><div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap"><img src="{html.escape(author["avatar"],quote=True)}" alt="{html.escape(author["name"]+" 的头像",quote=True)}" width="160" height="160" style="display:block;object-fit:contain;border-radius:12px"><div style="flex:1;min-width:200px"><p><b>{html.escape(author["name"])}</b></p><p>{html.escape(author["bio"])}</p>{accounts}</div></div></div></details>'
+    author_section=f'<details id="author"><summary>作者介绍</summary><div class="document"><h2>作者介绍</h2><div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap"><img src="{html.escape(author["avatar"],quote=True)}" alt="{html.escape(author["name"]+" 的头像",quote=True)}" width="160" height="160" style="display:block;object-fit:contain;border-radius:12px"><div style="flex:1;min-width:200px"><p><b>{html.escape(author["name"])}</b></p><p>{html.escape(author["statement"])}</p><p>{html.escape(author["bio"])}</p>{accounts}</div></div></div></details>'
     body=[author_section,f'<details id="disclaimer"><summary>免责声明与阅读说明</summary><div class="document">{render_md(FRONT.read_text(),FRONT.parent,document=True)}</div></details>',contents_html(),f'<details id="reading-path" open><summary>阅读说明：从眼前的问题开始</summary><div class="document">{render_md(INTRO.read_text(),INTRO.parent,document=True)}</div></details>']
     for c in CHAPTERS:
         body.append(f'<section data-section><h2 class="chapter" id="chapter-{c["id"]}">第 {c["id"]} 章 · {html.escape(c["title"])}</h2><div class="chapter-lead">{render_md(c["lead"],c["path"].parent)}</div>')
@@ -254,7 +254,7 @@ def build_pdf(font,bold):
     account_text='<br/>'.join(inline(c['account_label']+'：'+c['account'],ROOT,pdf=True) for c in author['channels'])
     account_box=Table([[Paragraph(account_text,profile_account)]],colWidths=[330],hAlign='CENTER')
     account_box.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,-1),colors.HexColor('#eef3f5')),('BOX',(0,0),(-1,-1),.5,colors.HexColor('#d6dfdc')),('TOPPADDING',(0,0),(-1,-1),16),('BOTTOMPADDING',(0,0),(-1,-1),16)]))
-    story.extend([heading('作者介绍','author'),Spacer(1,20),avatar,Spacer(1,22),Paragraph(html.escape(author['name']),profile_name),Paragraph(html.escape(author['bio']),profile_bio),Spacer(1,16),account_box,PageBreak()])
+    story.extend([heading('作者介绍','author'),Spacer(1,20),avatar,Spacer(1,22),Paragraph(html.escape(author['name']),profile_name),Paragraph(html.escape(author['statement']),profile_bio),Paragraph(html.escape(author['bio']),profile_bio),Spacer(1,16),account_box,PageBreak()])
     story.extend(flows(FRONT.read_text(),FRONT.parent,'disclaimer'));story.append(PageBreak())
     story.append(heading('目录','contents'))
     toc=TableOfContents();toc.levelStyles=[ParagraphStyle('toc0',fontName='GuideBold',fontSize=10.5,leading=17,spaceBefore=7,wordWrap='CJK'),ParagraphStyle('toc1',fontName='Guide',fontSize=9.5,leading=15,leftIndent=14,spaceBefore=2,wordWrap='CJK')]
@@ -298,7 +298,7 @@ def merged_md(path):
 def reading_paths():return [FRONT,INTRO]+[c['path'] for c in CHAPTERS]+[ROOT/'docs'/n for n in DOCS]
 
 def author_markdown():
-    author=META['author'];lines=['## 作者介绍','',f'![{author["name"]} 的头像]({author["avatar"]})','',f'**{author["name"]}**','',author['bio'],'']
+    author=META['author'];lines=['## 作者介绍','',f'![{author["name"]} 的头像]({author["avatar"]})','',f'**{author["name"]}**','',author['statement'],'',author['bio'],'']
     for channel in author['channels']:
         lines.extend([f'{channel["account_label"]}：{channel["account"]}',''])
     return '\n'.join(lines)
@@ -344,6 +344,8 @@ def validate(page):
     author_html=page.split('<details id="author">',1)[1].split('</details>',1)[0]
     if f'src="{META["author"]["avatar"]}"' not in author_html or author_html.count('<img ')!=1:
         raise ValueError('HTML author must contain exactly one avatar')
+    if html.escape(META['author']['statement']) not in author_html:
+        raise ValueError('HTML author statement missing')
     for channel in META['author']['channels']:
         if channel['account'] not in author_html:
             raise ValueError('HTML author channel missing')
@@ -375,6 +377,8 @@ def validate(page):
     if reader.get_destination_page_number(outlines[0])!=1 or reader.get_destination_page_number(outlines[1])!=2:
         raise ValueError('Author and disclaimer must be on pages 2 and 3')
     author_text=reader.pages[1].extract_text() or ''
+    if META['author']['statement'].replace(' ','') not in author_text.replace(' ','').replace('\n',''):
+        raise ValueError('PDF author statement missing')
     author_images=[x.get_object() for x in reader.pages[1]['/Resources'].get('/XObject',{}).values() if x.get_object().get('/Subtype')=='/Image']
     if len(author_images)!=1 or any(c['account'] not in author_text for c in META['author']['channels']):
         raise ValueError('PDF author must contain one avatar and account numbers')

@@ -1,9 +1,9 @@
 {
-  "version": "0.18.3",
+  "version": "0.18.4",
   "date": "2026-10-15",
   "sources": {
-    "project.json": "16151709a1fbc0a9f58b7c59e3820ff3d40fb6863cbee8628faf87e496721bca",
-    "tools/build_release.py": "c75b1802e2fe441ca5b798a98e7a1913a7605b2bf9a076927b74051ce7405562",
+    "project.json": "471ae72124fd1d3b8f740abe55c8e4ffb51cb410b37f585901d783ab8188f031",
+    "tools/build_release.py": "b386c45c0d8c7b1cb755ba6bfacb54514a56efaa3d6a06a994b078339dd3b751",
     "assets/普通人的AI学习指南-封面-v5.png": "73026dcab3172c78f790dfa4e6a0a4530900003003f5bd148851943d4d02608b",
     "assets/普通人的AI学习指南-PDF竖版封面-v1.png": "dc4ac6719bfad73a1c4c9aa254f24cbe1fd015763a95733157544ee92e5b1292",
     "assets/作者头像.jpg": "0ecd69f269fe8639ffbb13eee6f60dc9caa481581f3227cbc7ae619f3c823052",
@@ -19,12 +19,12 @@
     "docs/附录B-练习与模板.md": "d5903abd85935b24f8f575612d800da037c2dc51c11add4c6ebf33ba2b299685",
     "docs/附录C-文章播客与视频.md": "1df0c18e3f915237aaee0cb8c14356f5950b0cf438e74f851b8ab309c19f1837",
     "docs/附录D-研究与官方资料.md": "8059b8ce3e81de712ad87d306cf1580748d03af5bcf4c53b8357280316e715da",
-    "docs/版权与使用说明.md": "d015d216b7472a809d53573d96fdfd8ba54e4053d16a1e2dd284015d087a53d1"
+    "docs/版权与使用说明.md": "47ac0cef1b0248454aa2cdba3aaf8d1453eec63b24c0e42c0c03ce7b0ba41af2"
   },
   "outputs": {
-    "index.html": "920bd0e278c2b398cc0507003dba90d71fc9f386727ab691ed3ab6d0ec96d514",
-    "阅读全文.html": "57f4ee5f49230235815ffe896201708a038364cb56946c38c1cf2691a477a714",
-    "完整指南.md": "3221c6e034e750a9606d8d2bbb53b1da798cf4e83d252d963cf5221da3dd201d",
-    "downloads/普通人的AI学习指南.pdf": "5cc55458a3ad452f55d6d394137d30d16e8aaaed8d3ab6635f233ff6a931beab"
+    "index.html": "b92d30456e3a012377ba70ca4b30aa95479af3827aedb78cd5b9c329118c853c",
+    "阅读全文.html": "c60078a0a5751defd6f81ae7a027c14fcc9d59ade647078adb0eadb195f9cc66",
+    "完整指南.md": "a9a216c4f306fe036de0131443c06badb4b8239aba53597406a65747de7f24a5",
+    "downloads/普通人的AI学习指南.pdf": "55f0a5d579313aa857a74a952a839e1e77fe2a1501c793f2f267a5121e2a5ea0"
   }
 }

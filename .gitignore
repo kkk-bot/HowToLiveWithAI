@@ -7,7 +7,7 @@ output/
 assets/候选封面/
 # Only current release and the documented text-source backup are public.
 downloads/*.zip
-!downloads/HowToLiveWithAI-v0.18.3.zip
+!downloads/HowToLiveWithAI-v0.18.4.zip
 !downloads/HowToLiveWithAI-v0.15.1-source-backup.zip
 downloads/HTML预览.jpg
 downloads/普通人的AI学习与行动指南.pdf
