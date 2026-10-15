@@ -12,11 +12,12 @@ function fixture(file,search='',hash=''){
  const anchor=makeElement('A','r22');anchor.parentElement=details.find(d=>d.id==='appendix-d');
  const ids=Object.fromEntries([...details,...sections,...entries,anchor].map(e=>[e.id,e]));
  const window={events:{},printCalls:0,addEventListener(name,fn){this.events[name]=fn},print(){this.printCalls++}};
- const location={hash,search,pathname:'/'+file},history={last:null,replaceState(a,b,url){this.last=url}};
- const document={events:{},addEventListener(name,fn){this.events[name]=fn},body:makeElement('BODY','body'),querySelector(s){return nodes[s.slice(1)]},querySelectorAll(s){return s==='.entry'?entries:s==='[data-section]'?sections:s==='details'?details:[]},getElementById(id){return ids[id]}};
+ const location={hash,search,pathname:'/'+file},history={last:null,replaceState(a,b,url){this.last=url;const next=new URL(url,'https://example.test');location.search=next.search;location.hash=next.hash}};
+ const toolbar={height:169,getBoundingClientRect(){return{height:this.height}}},cssProperties={};
+ const document={events:{},documentElement:{style:{setProperty(name,value){cssProperties[name]=value}}},addEventListener(name,fn){this.events[name]=fn},body:makeElement('BODY','body'),querySelector(s){return s==='.toolbar'?toolbar:nodes[s.slice(1)]},querySelectorAll(s){return s==='.entry'?entries:s==='[data-section]'?sections:s==='details'?details:[]},getElementById(id){return ids[id]}};
  document.body.classList.toggle('continuous',file==='阅读全文.html');
  vm.runInNewContext(script,{window,document,location,history,URLSearchParams,requestAnimationFrame:fn=>fn()});
- return{html,nodes,details,entries,sections,window,document,location,history,ids,filterQuery(value){nodes.search.value=value;nodes.search.events.input()},filterChapter(value){nodes['chapter-filter'].value=value;nodes['chapter-filter'].events.change()},visible(){return entries.filter(e=>!e.classList.contains('hidden'))},hash(value){location.hash=value;window.events.hashchange()}};
+ return{html,nodes,details,entries,sections,window,document,location,history,ids,toolbar,cssProperties,filterQuery(value){nodes.search.value=value;nodes.search.events.input()},filterChapter(value){nodes['chapter-filter'].value=value;nodes['chapter-filter'].events.change()},visible(){return entries.filter(e=>!e.classList.contains('hidden'))},hash(value){location.hash=value;window.events.hashchange()},navigate(search,hash=''){location.search=search;location.hash=hash;window.events.popstate();window.events.hashchange()}};
 }
 let checks=0;function ok(fn){fn();checks++}
 for(const file of ['index.html','阅读全文.html']){
@@ -29,7 +30,7 @@ for(const file of ['index.html','阅读全文.html']){
  ok(()=>{f=fixture(file,'?chapter=4&q=独立');if(file==='index.html'){assert(f.visible().length>0);assert(f.visible().every(e=>e.dataset.chapter==='4'&&e.textContent.includes('独立')))}else{assert.equal(f.visible().length,29);assert.equal(f.nodes.search.value,'');assert.equal(f.nodes['chapter-filter'].value,'')}});
  ok(()=>{f=fixture(file,'?q=不存在','#appendix-b');assert.equal(f.ids['appendix-b'].open,true);assert(f.ids['appendix-b'].scrolled);assert.equal(f.visible().length,29)});
  ok(()=>{f=fixture(file);f.hash('#r22');assert(f.ids.r22.parentElement.open);assert(f.ids.r22.scrolled)});
- ok(()=>{f.filterChapter('9');f.hash('#entry-1.1');assert(f.visible().length===29&&f.ids['entry-1.1'].scrolled)});
+ ok(()=>{f.filterChapter('9');click(f,'#entry-1.1');assert(f.visible().length===29&&f.ids['entry-1.1'].scrolled)});
  ok(()=>{f.hash('#%E0%A4%A');f.hash('#missing');assert.equal(f.visible().length,29)});
  ok(()=>{f=fixture(file);const before=f.details.map(d=>d.open);f.window.events.beforeprint();assert(f.details.every(d=>d.open));f.window.events.afterprint();assert.deepEqual(f.details.map(d=>d.open),before)});
  ok(()=>{const before=f.details.map(d=>d.open);f.nodes.print.events.click();assert.equal(f.window.printCalls,1);assert(f.details.every(d=>d.open));f.window.events.beforeprint();f.window.events.afterprint();assert.deepEqual(f.details.map(d=>d.open),before)});
@@ -49,4 +50,9 @@ for(const file of ['index.html','阅读全文.html']){
  ok(()=>{const f=fixture(file);assert.equal((f.html.match(/<h1>/g)||[]).length,1);assert(f.html.includes(' / ${entries.length} 节'))});
 }
 ok(()=>{const f=fixture('阅读全文.html','?q=不存在的关键词xyz&chapter=99');assert.equal(f.visible().length,29);assert(f.details.every(d=>d.open));assert(!f.history.last.includes('?'))});
-console.log(`${checks} 项本地交互检查通过，包括同一锚点重入、连续版参数、修饰键和标题层级。`);
+for(const file of ['index.html','阅读全文.html']){
+ ok(()=>{const f=fixture(file);f.filterQuery('幻觉');click(f,'#entry-2.1');f.navigate('?q=幻觉');assert.equal(f.nodes.search.value,file==='index.html'?'幻觉':'');assert.equal(f.visible().length,file==='index.html'?3:29);assert.equal(f.nodes.count.textContent,`${f.visible().length} / 29 节`)});
+ ok(()=>{const f=fixture(file);f.navigate('?q=独立&chapter=4','#entry-1.1');assert.equal(f.nodes['chapter-filter'].value,file==='index.html'?'4':'');assert.equal(f.nodes.search.value,file==='index.html'?'独立':'');if(file==='index.html'){assert(f.visible().length>0);assert(f.visible().every(e=>e.dataset.chapter==='4'&&e.textContent.includes('独立')))}else assert.equal(f.visible().length,29);f.navigate('','#entry-2.1');assert.equal(f.visible().length,29);assert.equal(f.nodes.search.value,'');assert.equal(f.nodes['chapter-filter'].value,'');assert(f.ids['entry-2.1'].scrolled)});
+ ok(()=>{const f=fixture(file);assert.equal(f.cssProperties['--anchor-offset'],'185px');f.toolbar.height=73;f.window.events.resize();assert.equal(f.cssProperties['--anchor-offset'],'89px');assert(f.html.includes('scroll-padding-top:var(--anchor-offset,125px)'));assert(!f.html.includes('scroll-margin-top:120px'))});
+}
+console.log(`${checks} 项本地交互检查通过，包括历史导航恢复、窄屏跳转偏移、同一锚点重入、连续版参数、修饰键和标题层级。`);

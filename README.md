@@ -10,7 +10,7 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 
 认识 AI，减少焦虑，学会判断，从小事开始行动。你可以按六章主线阅读，也可以从眼前的问题选读；无需购买昂贵工具、完成商业项目或公开作品。每节说明理由、做法、可尝试的动作和检查方法。正文补有通知整理、会议纪要、概念学习、技能选择和青年行动的具体示范，帮助把建议变成一次可检查的小尝试。
 
-**6 章 · 29 节正文 · 4 个附录 · v0.18.1**
+**6 章 · 29 节正文 · 4 个附录 · v0.18.2**
 
 > **免责声明：学习参考。** 研究、官方资料和作者建议分别标注，依据只支持写明的范围。具体方法尚未完成读者实测，不保证适合每个人，也不承诺提效、就业、收入或消除所有焦虑。请结合自己的材料权限、实际环境和适用规则核实后使用，不直接照搬示例。详见[完整说明](docs/免责声明与阅读说明.md)。
 
@@ -18,7 +18,7 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 
 | 入口 | 内容 |
 | --- | --- |
-| 下载 | [PDF v0.18.1](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/普通人的AI学习指南.pdf) · [离线阅读包](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/HowToLiveWithAI-v0.18.1.zip) · [仓库 ZIP](https://github.com/kkk-bot/HowToLiveWithAI/archive/refs/heads/main.zip) |
+| 下载 | [PDF v0.18.2](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/普通人的AI学习指南.pdf) · [离线阅读包](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/HowToLiveWithAI-v0.18.2.zip) · [仓库 ZIP](https://github.com/kkk-bot/HowToLiveWithAI/archive/refs/heads/main.zip) |
 | 阅读 | [HTML 检索页](https://kkk-bot.github.io/HowToLiveWithAI/) · [连续阅读](https://kkk-bot.github.io/HowToLiveWithAI/阅读全文.html) · [完整文字版](完整指南.md) · [阅读说明](docs/阅读路径与行动建议.md) |
 | 练习 | [入门、办公、学习与求职练习](docs/附录B-练习与模板.md) |
 | 反馈 | [填写读者反馈](https://github.com/kkk-bot/HowToLiveWithAI/issues/new?template=reader-feedback.yml) · [提交来源或事实纠错](https://github.com/kkk-bot/HowToLiveWithAI/issues/new?template=source-correction.yml) |
