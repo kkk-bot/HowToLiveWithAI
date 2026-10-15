@@ -1,13 +1,12 @@
 {
-  "version": "0.18.2",
+  "version": "0.18.3",
   "date": "2026-10-15",
   "sources": {
-    "project.json": "909bc1718278bd6e0a9b621cda59f6fb1f4381c03fa60ba2a2f6fef6afc042a8",
-    "tools/build_release.py": "cdfcc7bfe5e34657fdd9b7bf7dfe86c5babde1cc3d01cb0c9c8fa0bd92f26a41",
+    "project.json": "16151709a1fbc0a9f58b7c59e3820ff3d40fb6863cbee8628faf87e496721bca",
+    "tools/build_release.py": "c75b1802e2fe441ca5b798a98e7a1913a7605b2bf9a076927b74051ce7405562",
     "assets/普通人的AI学习指南-封面-v5.png": "73026dcab3172c78f790dfa4e6a0a4530900003003f5bd148851943d4d02608b",
     "assets/普通人的AI学习指南-PDF竖版封面-v1.png": "dc4ac6719bfad73a1c4c9aa254f24cbe1fd015763a95733157544ee92e5b1292",
-    "assets/作者-小红书.jpg": "fbc2eab3b5af6972ba3fa3745855a8ef95362de17dacf38535d8919b4fca8978",
-    "assets/作者-抖音.jpg": "58b6f5d275e478bd2ff07620196297be6596ce0231b487aa7723519893b71e12",
+    "assets/作者头像.jpg": "0ecd69f269fe8639ffbb13eee6f60dc9caa481581f3227cbc7ae619f3c823052",
     "docs/免责声明与阅读说明.md": "818869ffbacc08276ad64e4aa9dd27a3b8935a2db7206b89ddeb2eb6d33bd425",
     "docs/阅读路径与行动建议.md": "90d7d6acd067d1160adcb7948159db4ecad25da138df4d6d8cc52991f77faf00",
     "book/01-先认识AI.md": "4e14882f8d1edb6893c00b7290ac4f12bb4d56d7782d54a124e52f6d5df38bd2",
@@ -23,9 +22,9 @@
     "docs/版权与使用说明.md": "d015d216b7472a809d53573d96fdfd8ba54e4053d16a1e2dd284015d087a53d1"
   },
   "outputs": {
-    "index.html": "6865006e20962a467b69413facb5382a544b88b0bca77c0b1080ce31d67357cd",
-    "阅读全文.html": "6f86a990867a4ec2807182ba2f83b41154f31c3103a7b6b37efac16a1e0dc616",
-    "完整指南.md": "9f3af9cb4d292a93d58f4b544483a22b6d554a8710a2f0285f2f783e25b06e34",
-    "downloads/普通人的AI学习指南.pdf": "09a9a1c66cfd9d41385c331521c29e295a17e2eff1e1192f4c60427dbbf120f2"
+    "index.html": "920bd0e278c2b398cc0507003dba90d71fc9f386727ab691ed3ab6d0ec96d514",
+    "阅读全文.html": "57f4ee5f49230235815ffe896201708a038364cb56946c38c1cf2691a477a714",
+    "完整指南.md": "3221c6e034e750a9606d8d2bbb53b1da798cf4e83d252d963cf5221da3dd201d",
+    "downloads/普通人的AI学习指南.pdf": "5cc55458a3ad452f55d6d394137d30d16e8aaaed8d3ab6635f233ff6a931beab"
   }
 }
