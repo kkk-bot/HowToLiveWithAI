@@ -37,6 +37,12 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 
 用对应 App 扫码；同一部手机阅读时，可先保存图片，再从 App 扫一扫中识别相册图片。
 
+### 支持作者
+
+如果这份指南对你有帮助，欢迎自愿赞赏，支持后续内容整理与维护。也欢迎留下建议，让这份指南更实用。
+
+<img src="assets/作者赞赏码.jpg" width="320" alt="作者赞赏码">
+
 ## [阅读与检索](https://kkk-bot.github.io/HowToLiveWithAI/) · [连续阅读](https://kkk-bot.github.io/HowToLiveWithAI/阅读全文.html)
 
 | 入口 | 内容 |
