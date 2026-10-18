@@ -1,8 +1,8 @@
 # 附录 D · 研究与官方资料
 
-按问题查来源即可，不必把资料库当作必读课程。保留 R01—R36 的 36 个记录编号与讲义 L01；R16、R34 是同一报告的不同阅读入口，不重复当成独立证据。
+按问题查来源即可，不必把资料库当作必读课程。保留 R01—R41 的 41 个记录编号与讲义 L01；R16、R34 是同一报告的不同阅读入口，不重复当成独立证据。
 
-每条只列阅读用途、已读范围和关键限制。既有核查主要在 2026-10-10—12 完成；R25、R30、R11 于 2026-10-14 回看相关页面。其他记录本次仅压缩，不扩大阅读或实测范围。详细日期、研究对象与取舍保留在[完整核查记录](https://github.com/kkk-bot/HowToLiveWithAI/blob/main/docs/维护/附录D-详细核查记录-v0.17.2.md)。
+每条只列书目信息、阅读用途、已读范围和关键限制。既有核查主要在 2026-10-10—12 完成；R25、R30、R11 于 2026-10-14 回看，R35—R41 于 2026-10-18 增补。未回看的记录保留原阅读范围。详细取舍见[既有核查记录](https://github.com/kkk-bot/HowToLiveWithAI/blob/main/docs/维护/附录D-详细核查记录-v0.17.2.md)与[本轮文献核查](维护/文献增补与引用核查-v0.19.1.md)。
 
 <a id="d-1"></a>
 
@@ -108,6 +108,16 @@ Anthropic 的工程文章区分预设步骤与模型动态选择步骤，建议�
 
 [原文](https://www.anthropic.com/engineering/building-effective-agents)
 
+<a id="r37"></a>
+
+### R37 · 长上下文：放得下不等于用得好
+
+Liu 等（2024），Lost in the Middle: How Language Models Use Long Contexts，TACL 12：157—173。用于 1.2 节，解释信息位置会影响特定模型的表现。
+
+**阅读范围：** 2026-10-18 已读摘要及原论文任务设置、结果与结论；测试的是历史模型，不推算当前产品的错误率。
+
+[论文与 DOI](https://aclanthology.org/2024.tacl-1.9/) · [原论文](https://aclanthology.org/2024.tacl-1.9.pdf)
+
 <a id="d-2"></a>
 
 ## D.2 任务效果与核查
@@ -172,6 +182,26 @@ NIST 生成式 AI 风险框架，查来源、核对事实时可看第 2.2 节与
 
 [原始发布资料](https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf)
 
+<a id="r38"></a>
+
+### R38 · 模型的赞同不等于事实确认
+
+Sharma 等，Towards Understanding Sycophancy in Language Models，ICLR 2024。用于 2.3 节，讨论模型顺着用户观点回答的风险。
+
+**阅读范围：** 2026-10-18 核对会议摘要，并读作者 v4 的第 2—4、6 节；五种历史助手的测试不等于所有现用工具的表现，也未验证本指南的应对提示。
+
+[会议记录](https://proceedings.iclr.cc/paper_files/paper/2024/hash/0105f7972202c1d4fb817da9f21a9663-Abstract-Conference.html) · [作者 v4](https://arxiv.org/html/2310.13548v4)
+
+<a id="r40"></a>
+
+### R40 · 人机协作：评价结果要看比较基准
+
+Vaccaro、Almaatouq 与 Malone（2024），When combinations of humans and AI are useful: A systematic review and meta-analysis，Nature Human Behaviour。用于 2.5 节。
+
+**阅读范围：** 2026-10-18 已读摘要、总体结果、纳入标准与局限。106 项实验涵盖多类 AI，不能当作当前生成式工具的统一结论；比较基准不同，解释也不同。
+
+[论文全文与 DOI](https://www.nature.com/articles/s41562-024-02024-1)
+
 <a id="d-3"></a>
 
 ## D.3 学习与基础技能
@@ -225,6 +255,26 @@ OECD《AI 时代的技能》执行摘要，关注基础技能、批判思考、�
 **阅读范围：** 只读执行摘要；不是本指南六项技能的排名或成人学习效果验证。
 
 [官方执行摘要](https://www.oecd.org/en/publications/skills-in-the-ai-age_972bd15e-en/full-report/component-4.html)
+
+<a id="r39"></a>
+
+### R39 · 有教学设计的 AI 导师：物理课交叉试验
+
+Kestin 等（2025），AI tutoring outperforms in-class active learning，Scientific Reports 15：17458。用于 3.4 节，与独立掌握风险研究对照阅读。
+
+**阅读范围：** 2026-10-18 已读结果、教学设计、研究对象、交叉设计与局限。特定课程的课后测验结果，不代表自由聊天、长期保持或替代教师。
+
+[论文全文与 DOI](https://www.nature.com/articles/s41598-025-97652-6)
+
+<a id="r41"></a>
+
+### R41 · 一般学习方法：自测与分散练习
+
+Dunlosky 等（2013），Improving Students’ Learning With Effective Learning Techniques，Psychological Science in the Public Interest。用于 3.5 节及 B.3 独立练习。
+
+**阅读范围：** 2026-10-18 已读出版页完整摘要与方法评价结论，未逐项审阅全部原始实验。一般学习方法综述，不是生成式 AI 教学的直接效果证据。
+
+[出版页与 DOI](https://journals.sagepub.com/doi/10.1177/1529100612453266)
 
 <a id="d-4"></a>
 

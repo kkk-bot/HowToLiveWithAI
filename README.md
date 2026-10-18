@@ -10,7 +10,7 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 
 认识 AI，减少焦虑，学会判断，从小事开始行动。你可以按六章主线阅读，也可以从眼前的问题选读；无需购买昂贵工具、完成商业项目或公开作品。每节说明理由、做法、可尝试的动作和检查方法。正文补有工具选择、资料冲突、数据比例、学习纠错、岗位分析和青年起步的具体示范；练习配有虚构输入与参考答案，帮助把建议变成一次可检查的小尝试。
 
-**6 章 · 29 节正文 · 4 个附录 · v0.19**
+**6 章 · 29 节正文 · 4 个附录 · v0.19.1**
 
 > **免责声明：学习参考。** 研究、官方资料和作者建议分别标注，依据只支持写明的范围。具体方法尚未完成读者实测，不保证适合每个人，也不承诺提效、就业、收入或消除所有焦虑。请结合自己的材料权限、实际环境和适用规则核实后使用，不直接照搬示例。转载、节选或改编须注明作者 YOLO、作品名、来源及 CC BY 4.0 许可，保留随附署名、版权和免责信息并标明修改。详见[完整说明](docs/免责声明与阅读说明.md)和[转载要求](docs/版权与使用说明.md)。
 
@@ -47,7 +47,7 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 
 | 入口 | 内容 |
 | --- | --- |
-| 下载 | [PDF v0.19](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/普通人的AI学习指南.pdf) · [离线阅读包](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/HowToLiveWithAI-v0.19.zip) · [仓库 ZIP](https://github.com/kkk-bot/HowToLiveWithAI/archive/refs/heads/main.zip) |
+| 下载 | [PDF v0.19.1](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/普通人的AI学习指南.pdf) · [离线阅读包](https://github.com/kkk-bot/HowToLiveWithAI/raw/refs/heads/main/downloads/HowToLiveWithAI-v0.19.1.zip) · [仓库 ZIP](https://github.com/kkk-bot/HowToLiveWithAI/archive/refs/heads/main.zip) |
 | 阅读 | [HTML 检索页](https://kkk-bot.github.io/HowToLiveWithAI/) · [连续阅读](https://kkk-bot.github.io/HowToLiveWithAI/阅读全文.html) · [完整文字版](完整指南.md) · [阅读说明](docs/阅读路径与行动建议.md) |
 | 练习 | [入门、办公、学习与求职练习](docs/附录B-练习与模板.md) |
 | 反馈 | [填写读者反馈](https://github.com/kkk-bot/HowToLiveWithAI/issues/new?template=reader-feedback.yml) · [提交来源或事实纠错](https://github.com/kkk-bot/HowToLiveWithAI/issues/new?template=source-correction.yml) |
@@ -83,7 +83,7 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 | [A. 进阶原理](docs/附录A-进阶原理.md) | token、Transformer、训练与微调、API、训练数据与模型坍塌；按兴趣深入 |
 | [B. 练习与模板](docs/附录B-练习与模板.md) | 六个入门例子、带答案的销售表与比例练习、办公验收、学习检查、求职与迁移及行动记录 |
 | [C. 文章、播客与视频](docs/附录C-文章播客与视频.md) | 孙宇晨与邵艾伦对谈取舍、作者文章、中文课程和 X、B 站、抖音线索 |
-| [D. 研究与官方资料](docs/附录D-研究与官方资料.md) | 按主题列出 R01—R36 的用途、原始链接与关键限制；详细核查另存维护文档，讲义 L01 另计 |
+| [D. 研究与官方资料](docs/附录D-研究与官方资料.md) | 按主题列出 R01—R41 的用途、原始链接与关键限制；详细核查另存维护文档，讲义 L01 另计 |
 
 ## 如何理解依据
 
@@ -94,7 +94,7 @@ AI 的资讯和工具越来越多，真正开始时，许多人仍不知道先�
 | 作者建议 | 可以尝试的步骤、例子和检查方法 | 尚未实测，允许继续、调整或停止 |
 | 平台与观点材料 | 选题线索、个人经验和进一步阅读入口 | 索引不等于看完视频；观点不重复算成研究证据 |
 
-当前资料分为 **36 条研究与官方资料记录、19 项平台线索、5 项文章与播客、1 个中文课程入口**。多数平台内容只读公开索引；对谈未完整观看，逐项说明读取限制。R16、R34 是同一报告的不同阅读入口，不重复计为独立证据。资料附录提供选读简介，原日期、对象和完整取舍可查 [C 核查记录](docs/维护/附录C-详细核查记录-v0.17.2.md)、[D 核查记录](docs/维护/附录D-详细核查记录-v0.17.2.md)。用户讲义仅用于原创解释与核查，不分发原文件。
+当前资料分为 **41 条研究与官方资料记录、19 项平台线索、5 项文章与播客、1 个中文课程入口**。多数平台内容只读公开索引；对谈未完整观看，逐项说明读取限制。R16、R34 是同一报告的不同阅读入口，不重复计为独立证据。资料附录提供选读简介；本轮五篇论文的适用段落与取舍见[文献增补核查](docs/维护/文献增补与引用核查-v0.19.1.md)，既有日期、对象和取舍可查 [C 核查记录](docs/维护/附录C-详细核查记录-v0.17.2.md)、[D 核查记录](docs/维护/附录D-详细核查记录-v0.17.2.md)。用户讲义仅用于原创解释与核查，不分发原文件。
 
 时间、交付质量、实际收入和风险分别记录：生成快不代表交付快，省时不代表工资增加，没有成交记录就不声称能赚钱。
 
