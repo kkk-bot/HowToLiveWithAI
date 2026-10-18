@@ -337,7 +337,7 @@ def validate(page):
             file,sep,anchor=url.partition('#');dest=(p.parent/file).resolve() if file else p
             if not dest.exists():raise ValueError(f'{p.name}: missing {url}')
             if sep and anchor not in re.findall(r'<a id="([^"]+)"',dest.read_text()):raise ValueError(f'{p.name}: missing source anchor {url}')
-    for prefix,count in [('r',34),('p',19),('m',5),('c',1),('l',1)]:
+    for prefix,count in [('r',36),('p',19),('m',5),('c',1),('l',1)]:
         if {x for x in ids if re.fullmatch(prefix+r'\d+',x)}!={f'{prefix}{i:02}' for i in range(1,count+1)}:raise ValueError('Source identifier coverage '+prefix)
     merged=(ROOT/'完整指南.md').read_text()
     if author_markdown() not in merged:raise ValueError('Merged Markdown author missing')
@@ -394,7 +394,7 @@ def validate(page):
     links=sum(1 for p in reader.pages for ref in p.get('/Annots',[]) if ref.get_object().get('/A',{}).get('/URI'))
     internal=sum(1 for p in reader.pages for ref in p.get('/Annots',[]) if ref.get_object().get('/Dest'))
     if not links or not internal:raise ValueError('PDF source/internal links missing')
-    print(json.dumps({'chapters':len(CHAPTERS),'sections':len(ENTRIES),'appendices':4,'pdf_pages':len(reader.pages),'bookmarks':len(outlines),'source_links':links,'internal_links':internal,'source_records':60,'links_and_source_coverage':'passed'},ensure_ascii=False))
+    print(json.dumps({'chapters':len(CHAPTERS),'sections':len(ENTRIES),'appendices':4,'pdf_pages':len(reader.pages),'bookmarks':len(outlines),'source_links':links,'internal_links':internal,'source_records':62,'links_and_source_coverage':'passed'},ensure_ascii=False))
 
 def main():
     parser=argparse.ArgumentParser();parser.add_argument('--check',action='store_true');parser.add_argument('--font',default='/System/Library/Fonts/STHeiti Light.ttc');parser.add_argument('--bold-font',default='/System/Library/Fonts/STHeiti Medium.ttc');args=parser.parse_args()
